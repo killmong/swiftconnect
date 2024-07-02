@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.landing-page,
+.login-signup-page {
+  height: calc(100vh - 54px);
+}
+
+.logo {
+  border-radius: 30px;
+}
+.custom-font {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu;
+}
+
+
+.reset-password{
+  font-family:cursive;
+  font-size: 16px;
+}
+
+.logo-font{
+  font-family: 'Playwrite Australia QLD';
+}
