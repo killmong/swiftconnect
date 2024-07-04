@@ -22,7 +22,7 @@ const Avatar: React.FC<AvatarProps> = ({ src, alt, scale }) => (
   />
 );
 
-const Slider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const SliderItem: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const avatars = useMemo(
@@ -106,4 +106,4 @@ const Slider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 
-export default Slider;
+export default SliderItem;

@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "swiper/swiper-bundle.css";
 .landing-page,
 .login-signup-page {
   height: calc(100vh - 54px);
@@ -15,12 +15,19 @@
     Oxygen, Ubuntu;
 }
 
-
-.reset-password{
-  font-family:cursive;
+.reset-password {
+  font-family: cursive;
   font-size: 16px;
 }
 
-.logo-font{
-  font-family: 'Playwrite Australia QLD';
+.logo-font {
+  font-family: ;
+}
+.background {
+  background: rgb(15, 23, 42);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 23, 42, 1) 55%,
+    rgba(35, 42, 71, 1) 96%
+  );
 }

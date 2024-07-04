@@ -3,35 +3,46 @@ import Link from "next/link";
 import { GrHomeRounded } from "react-icons/gr";
 import { MdOutlineExplore } from "react-icons/md";
 import { GiNestBirds } from "react-icons/gi";
-import { MdGroups2 } from "react-icons/md";
-import Tooltip from "@/common/utils/Tooltip";
+import { FaRegBell } from "react-icons/fa6";
 const TopBar = () => {
   return (
-    <div className=" flex flex-row  justify-center bg-slate-900 py-1  ">
+    <div className="hidden md:flex  lg:px-96">
       <div className="flex  flex-col px-4  ">
-      <Tooltip message="Home">
-        <Link href='/HomePage'>
-        <GrHomeRounded size={30} className="mx-3 hover:bg-slate-600 "  color="white" /> 
-        
-        </Link></Tooltip>
-      
+        <Link href="/homePage/Feed">
+          <GrHomeRounded
+            size={30}
+            className="mx-3 hover:bg-slate-600 "
+            color="white"
+          />
+          <p className=" text-gray-50  ">Home</p>
+        </Link>
       </div>
       <div className="flex flex-col px-4">
-      <Tooltip message="Explore">
-        <MdOutlineExplore size={30} className="mx-3 hover:bg-slate-600 " color="white"  />
-        </Tooltip>
-         </div>
+        <Link href='/Explore'><MdOutlineExplore
+          size={30}
+          className="mx-3 hover:bg-slate-600 "
+          color="white"
+        />
+         <p className="  text-gray-50 ">Explore</p>
+        </Link>
+      </div>
       <div className="flex flex-col px-4">
-      <Tooltip message="Groups">
-        <MdGroups2 size={30} className="mx-3 hover:bg-slate-600 " color="white" />
-        </Tooltip>
-        </div>
+        <GiNestBirds
+          size={30}
+          className="mx-3 hover:bg-slate-600 "
+          color="white"
+        />
+         <p className="">Groups</p>
+      </div>
 
       <div className="flex flex-col px-4">
-      <Tooltip message="Activity">
-        <GiNestBirds size={30}className="mx-3 hover:bg-slate-600 " color="white" />
-        </Tooltip>
-        </div>
+        <FaRegBell
+          size={30}
+          className="mx-3 hover:bg-slate-600 "
+          color="white"
+        />
+         <p className="">Activity</p>
+      </div>
     </div>
   );
 };

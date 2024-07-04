@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Layout from "./layout/Layout";
 import { Comfortaa } from "next/font/google";
+import { UserContext } from "@/common/components/UserContext";
 
 export const comfortaa = Comfortaa({
-  weight: ['600',"400"],
-  style:['normal',],
+  weight: ["600", "400"],
+  style: ["normal"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={comfortaa.className}>
-        <Layout>{children}</Layout>
+        <UserContext>
+          <Layout>{children}</Layout>
+        </UserContext>
       </body>
     </html>
   );
