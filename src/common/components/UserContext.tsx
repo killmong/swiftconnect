@@ -1,11 +1,12 @@
 'use client'
 import React, { createContext, useState, ReactNode } from "react";
-
-interface UserDetails {
-  username: string;
-  profilePicture: string;
+export interface UserDetails {
+  username?: string;
+  email?: string;
+  password?: string;
+  gender?: string;
+  profilePicture?: string;
 }
-
 interface ContextProps {
   userDetails: UserDetails | null;
   updateUserDetails: (details: Partial<UserDetails>) => void;

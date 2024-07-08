@@ -1,36 +1,63 @@
 "use client";
 import Container from "@/common/components/Container";
 import { useState } from "react";
-import Link from "next/link";
 import Login from "./Login";
-import BackgroundBeams from "@/common/components/BackgroundBeams";
+import Signup from "./Signup";
 const Loginsignup = () => {
-  const [isLogin, setisLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(true);
+  const [isSignup, setIsSignup] = useState(false);
+
+  const handleSignup = () => {
+    setIsLogin(false);
+    setIsSignup(true);
+  };
+
+  const handleLogin = () => {
+    setIsSignup(false);
+    setIsLogin(true);
+  };
+
   return (
-    
-<div className="background flex flex-col justify-items-center flex-1  px-4 lg:pt-24 md:px-20 text-center w-full  login-signup-page">
+    <div className="background flex flex-col justify-items-center flex-1 px-4 lg:pt-24 md:px-20 text-center w-full login-signup-page">
       <Container>
-        
-        <div className="bg-gray-50  rounded-2xl md:m-auto  lg:shadow-2xl flex  lg:flex lg:justify-between w-full max-w-4xl">
-         <div className="block  w-full lg:w-1/2 lg:p-5   md:py-10 py-24 ">
-         <Login />
-         </div>
-         
-         <div className="  lg:rounded-tr-2xl lg:rounded-br-2xl  md:py-36 px-12 hidden md:block bg-red-600 text-gray-100">
-            <h2 className="text-3xl font-bold mb-2 ">Welcome </h2>
-            <div className="border-2 w-10 border-white inline-block mb-2"></div>
-            <p className="mb-2">FIll Your Details and Start Your Journey with us</p>
-            <Link href='#' className="border-2 rounded-full text-white inline-block font-semibold hover:bg-gray-50 hover:text-red-500 border-white px-12 py-2  ">Signup</Link>
-            <div className=" mx-2 my-2 py-1 flex lg:hidden flex-row justify-items-center" >
-                <p>Already have an account?</p>
-                <Link href='#' className="font-bold py-2 px-2 text-black">Login here</Link>
+        <div
+          className={`container bg-gray-50 md:m-auto  ${
+            isSignup ? "right-panel-active" : ""
+          }`}
+        >
+          <div className="bg-gray-50 rounded-2xl md:m-auto lg:shadow-2xl flex w-full max-w-4xl">{isLogin && <Login />}</div>
+          <div className="bg-gray-50 rounded-2xl md:m-auto lg:shadow-2xl flex justify-end w-full max-w-4xl ">{isSignup && <Signup />}</div>
+          <div className="overlay-container absolute top-0 left-1/2 w-1/2 h-full overflow-hidden transition-transform duration-600 ease-in-out z-100">
+            <div className="overlay bg-gradient-to-r from-pink-500 to-red-500 bg-cover bg-no-repeat bg-center text-white relative left-[-100%] h-full w-[200%] transform transition-transform duration-600 ease-in-out lg:transform-gpu">
+              <div className="overlay-panel overlay-left absolute top-0 left-0 h-full w-1/2 flex flex-col items-center justify-center text-center px-10 transition-transform duration-600 ease-in-out lg:transform-gpu">
+                <h1>Welcome Back!</h1>
+                <p>
+                  To keep connected with us please login with your personal info
+                </p>
+                <button
+                  className="ghost bg-transparent border-2 border-white text-white py-2 px-8 rounded-full"
+                  onClick={handleLogin}
+                >
+                  Sign In
+                </button>
+              </div>
+              <div className="overlay-panel overlay-right absolute top-0 right-0 h-full w-1/2 flex flex-col items-center justify-center text-center px-10 transition-transform duration-600 ease-in-out lg:transform-gpu">
+                <h1>Hello, Friend!</h1>
+                <p>
+                  Enter your personal details and start your journey with us
+                </p>
+                <button
+                  className="ghost bg-transparent border-2 border-white text-white py-2 px-8 rounded-full"
+                  onClick={handleSignup}
+                >
+                  Sign Up
+                </button>
+              </div>
             </div>
-            
-         </div>
-         </div>
+          </div>
+        </div>
       </Container>
     </div>
-    
   );
 };
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Container from "@/common/components/Container";
 import SliderItem from "./SliderItem";
-import BackgroundBeams from "@/common/components/BackgroundBeams";
+ "@/common/components/BackgroundBeams";
 const LandingPage: React.FC = () => {
   const pathname = usePathname();
 
@@ -30,7 +30,8 @@ const LandingPage: React.FC = () => {
               Get Started
             </Link>
           </SliderItem>
-        </div>
+          </div> 
+         
       </Container>
     </div>
   );
