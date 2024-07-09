@@ -4,19 +4,16 @@ export interface UserDetails {
   username?: string;
   email?: string;
   password?: string;
-  gender?: string;
-  profilePicture?: string;
 }
 interface ContextProps {
   userDetails: UserDetails | null;
   updateUserDetails: (details: Partial<UserDetails>) => void;
-  updateProfile: (profilePicture: string) => void;
 }
 
 const Context = createContext<ContextProps>({
   userDetails: null,
   updateUserDetails: () => {},
-  updateProfile: () => {},
+
 });
 
 const UserContext: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -29,15 +26,8 @@ const UserContext: React.FC<{ children: ReactNode }> = ({ children }) => {
     }));
   };
 
-  const updateProfile = (profilePicture: string) => {
-    setUserDetails((prevDetails) => ({
-      ...(prevDetails || { username: "", profilePicture: "" }),
-      profilePicture: profilePicture,
-    }));
-  };
-
   return (
-    <Context.Provider value={{ userDetails, updateUserDetails, updateProfile }}>
+    <Context.Provider value={{ userDetails, updateUserDetails }}>
       {children}
     </Context.Provider>
   );
