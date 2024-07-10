@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import InputField from "@/common/components/InputField";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { Context } from "@/common/components/UserContext";
 
 const Signup = () => {
   const router = useRouter();
@@ -12,9 +13,9 @@ const Signup = () => {
       username: "",
       email: "",
       password: "",
-      fullname: "",
     },
   });
+  const {updateUserDetails} = useContext(Context)
 
   const onSignup = async (data: any) => {
     try {
@@ -30,6 +31,7 @@ const Signup = () => {
       console.log(result);
 
       if (response.ok) {
+        updateUserDetails(data);
         router.push("/homePage");
         toast.success("Signup Successful!")
       } else {

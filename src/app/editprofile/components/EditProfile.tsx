@@ -1,8 +1,9 @@
 "use client";
+import { useContext } from "react";
+import Image from "next/image";
+import { Context as UserContext } from "@/common/components/UserContext";
 import Container from "@/common/components/Container";
 import React, { useState } from "react";
-import Image from "next/image";
-
 const predefinedPics = [
   "/images/BirdAvatars/Sparrow.jpg",
   "/images/BirdAvatars/AngryEagle.jpg",
@@ -17,6 +18,7 @@ const predefinedPics = [
 
 const EditProfile = () => {
   const [selectedPic, setSelectedPic] = useState(predefinedPics[0]);
+  const { userDetails } = useContext(UserContext);
 
   return (
     <div className="h-screen background flex justify-center items-center">
@@ -54,9 +56,9 @@ const EditProfile = () => {
           </div>
 
           <div className="border text-gray-50 my-5 border-gray-500 rounded-lg">
-            <p className="px-2 py-1">username</p>
-            <p className="px-2 py-1">email</p>
-            <p className="px-2 py-1">password</p>
+            <h2>User Profile</h2>
+            <p>Username: </p>
+            <p>Email: </p>
           </div>
 
           <button

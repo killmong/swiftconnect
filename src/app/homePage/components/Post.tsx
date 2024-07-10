@@ -1,10 +1,11 @@
 'use client'
 import React, { useState } from 'react';
 import { FaRegImage } from "react-icons/fa";
-
+import Image from 'next/image';
 const Post = () => {
-  const [postText, setPostText] = useState('');
+  const [description, setDescription] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -17,13 +18,10 @@ const Post = () => {
     }
   };
 
-  const handlePost = () => {
-    // Implement your post functionality here
-    console.log('Posting:', postText);
-    console.log('Selected Image:', selectedImage);
-    // Reset state after posting
-    setPostText('');
-    setSelectedImage(null);
+  const handlePost = async () => {
+    console.log("Posting:", description);
+    console.log("Uploaded Image URL:", imageUrl);
+    // Here you can add logic to actually post the data to your backend
   };
 
   return (
@@ -32,16 +30,21 @@ const Post = () => {
         <textarea
           className='w-full h-auto p-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
           placeholder='Write your post here...'
-          value={postText}
-          onChange={(e) => setPostText(e.target.value)}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
+        <div className='w-[480px] h-[640px]'>
         {selectedImage && (
-          <img
+          <Image 
+          width={250}
+          height={250}
+          objectFit='cover'
             src={selectedImage}
             alt="Selected"
-            className="mt-2 w-full rounded-md border border-gray-300"
+            className="mt-2 w-full h-auto rounded-md border border-gray-300"
           />
         )}
+        </div>
         <div className='flex flex-row justify-between mt-2'>
           <label htmlFor="file-upload" className="cursor-pointer">
             <FaRegImage size={20} className='bg-gray-50 mx-2 my-2' />
