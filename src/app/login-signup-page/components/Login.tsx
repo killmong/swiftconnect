@@ -1,12 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 import InputField from "@/common/components/InputField";
 import { toast } from "react-toastify";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 const Login = () => {
   const { handleSubmit, control } = useForm({
     defaultValues: {
@@ -16,7 +16,6 @@ const Login = () => {
   });
 
   const router = useRouter();
-
 
   const onSignin = async (data: any) => {
     try {
@@ -37,7 +36,7 @@ const Login = () => {
       }
 
       const result = await response.json();
-      Cookies.set('authToken', result.token, { expires: 7 }); // Expires in 7 days
+      Cookies.set("Token", result.token, { expires: 7 }); // Expires in 7 days
 
       console.log(result);
       router.push("/homePage");
@@ -56,13 +55,22 @@ const Login = () => {
       </div>
       <div className="flex flex-col justify-center">
         <div className="flex justify-center flex-row">
-          <Link href="#" className="border-2 rounded-full p-3 mx-1 border-gray-200">
+          <Link
+            href="#"
+            className="border-2 rounded-full p-3 mx-1 border-gray-200"
+          >
             <FaFacebook className="text-md" />
           </Link>
-          <Link href="#" className="border-2 rounded-full p-3 mx-1 border-gray-200">
+          <Link
+            href="#"
+            className="border-2 rounded-full p-3 mx-1 border-gray-200"
+          >
             <FaLinkedin className="text-md" />
           </Link>
-          <Link href="#" className="border-2 rounded-full p-3 mx-1 border-gray-200">
+          <Link
+            href="#"
+            className="border-2 rounded-full p-3 mx-1 border-gray-200"
+          >
             <FcGoogle className="text-md" />
           </Link>
         </div>

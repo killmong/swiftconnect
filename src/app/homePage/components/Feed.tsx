@@ -12,10 +12,10 @@ const Feed = () => {
             <Image
               alt="user profile"
               height={40}
+              src='/images/BirdAvatars/Sparrow.jpg'
               width={40}
-              src="/images/BirdAvatars/Penguin.jpg"
               className="items-start rounded-full"
-            />
+            /> 
             <div className="flex px-2  flex-col">
               <p className="text-gray-50 text-xs">
                 {" "}
@@ -25,13 +25,7 @@ const Feed = () => {
             </div>
           </div>
           <div className="flex py-2 flex-col">
-            <Image
-              alt="post"
-              src="/images/bg.jpg"
-              height={468}
-              width={500}
-              className="w-auto h-auto rounded-md object-cover"
-            />
+            
             <div className="py-2">
               <p className="text-gray-50 text-xs m-auto">
                 Gourav{" "}

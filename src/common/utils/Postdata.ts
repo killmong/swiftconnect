@@ -24,14 +24,3 @@ const postData = async (image: File | null) => {
   };
 
 
-  fetch("http://localhost:5000/api/createPost", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify({
-      description,
-      imageUrl,
-    }),
-  });
-
